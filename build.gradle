@@ -40,6 +40,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.keycloak:keycloak-spring-boot-starter')
+	compile group: 'joda-time', name: 'joda-time', version: '2.3'
+
+	compileOnly('org.projectlombok:lombok')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
