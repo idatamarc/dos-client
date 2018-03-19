@@ -1,11 +1,19 @@
 package com.dnastack.dos.client.repository;
 
 import com.dnastack.dos.client.model.DataNode;
+import com.dnastack.dos.client.repository.dto.Ga4ghDataNodesResponseDto;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The service class to CRUD data from downstream services/databases
@@ -16,9 +24,20 @@ import java.util.HashMap;
 @Service
 public class DataNodeRepository {
 
+    @Value("${dos.registry.service.endpoint}")
+    private String dosRegistryServiceEndpoint;
+
+    @Autowired
+    public KeycloakRestTemplate keycloakRestTemplate;
+
+    //Tihs is the model to dto converter
+    @Autowired
+    private ModelMapper modelMapper;
+
     public Collection<DataNode> findAll(){
 
         //demo only!
+        /*
         Collection<DataNode> dataNodes = new ArrayList<>();
 
         DataNode dataNode1 = new DataNode();
@@ -41,7 +60,22 @@ public class DataNodeRepository {
         dataNode3.setUrl("http://foobar.dos.com");
         dataNode3.setMetaData(new HashMap<String, String>(){{put("category", "Autism");}});
         dataNodes.add(dataNode3);
+        */
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        //headers.add("Authorization", "Bearer " + tokenInfo.getJwtToken());
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+        ResponseEntity<Ga4ghDataNodesResponseDto> dataNodesDto = keycloakRestTemplate.exchange(dosRegistryServiceEndpoint+"nodes",
+                HttpMethod.GET, entity, Ga4ghDataNodesResponseDto.class);
+
+        List<DataNode> dataNodes = dataNodesDto.getBody().getDosNodes().stream()
+                .map(dto -> {
+                    return modelMapper.map(dto, DataNode.class);
+                })
+                .collect(Collectors.toList());
 
         return dataNodes;
     }
+
 }

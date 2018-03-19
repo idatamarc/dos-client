@@ -7,3 +7,17 @@ keycloak:
   resource: login-app
   public-client: true
   principal-attribute: preferred_username
+
+dos:
+  registry:
+    service:
+      endpoint: http://127.0.0.1:8083/ga4gh/registry/dos/v1/
+
+logging:
+    level:
+        org.springframework.ws.client.MessageTracing.sent: TRACE
+        org.springframework.ws.client.MessageTracing.received: TRACE
+        org.apache.http.wire: INFO
+        org.springframework.web.client: TRACE
+        org.springframework.web.client.RestTemplate: TRACE
+        org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate: TRACE

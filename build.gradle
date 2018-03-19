@@ -41,6 +41,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.keycloak:keycloak-spring-boot-starter')
 	compile group: 'joda-time', name: 'joda-time', version: '2.3'
+	compile('com.github.jmnarloch:modelmapper-spring-boot-starter:1.1.0')
 
 	compileOnly('org.projectlombok:lombok')
 
