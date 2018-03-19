@@ -1,4 +1,4 @@
-package com.dnastack.dos.client.dosclient.config;
+package com.dnastack.dos.client.config;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakSecurityComponents;

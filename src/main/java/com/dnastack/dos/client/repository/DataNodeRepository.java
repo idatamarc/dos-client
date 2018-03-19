@@ -1,6 +1,6 @@
-package com.dnastack.dos.client.dosclient.repository;
+package com.dnastack.dos.client.repository;
 
-import com.dnastack.dos.client.dosclient.model.DataNode;
+import com.dnastack.dos.client.model.DataNode;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

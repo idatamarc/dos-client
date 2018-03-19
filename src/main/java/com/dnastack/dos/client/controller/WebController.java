@@ -1,7 +1,7 @@
-package com.dnastack.dos.client.dosclient.controller;
+package com.dnastack.dos.client.controller;
 
-import com.dnastack.dos.client.dosclient.model.DataNode;
-import com.dnastack.dos.client.dosclient.repository.DataNodeRepository;
+import com.dnastack.dos.client.model.DataNode;
+import com.dnastack.dos.client.repository.DataNodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

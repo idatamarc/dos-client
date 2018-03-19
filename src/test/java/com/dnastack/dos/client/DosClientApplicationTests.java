@@ -1,4 +1,4 @@
-package com.dnastack.dos.client.dosclient;
+package com.dnastack.dos.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

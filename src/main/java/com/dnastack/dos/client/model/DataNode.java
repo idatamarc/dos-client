@@ -1,4 +1,4 @@
-package com.dnastack.dos.client.dosclient.model;
+package com.dnastack.dos.client.model;
 
 import lombok.Data;
 import org.joda.time.DateTime;
