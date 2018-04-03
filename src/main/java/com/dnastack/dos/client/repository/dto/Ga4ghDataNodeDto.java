@@ -16,8 +16,8 @@ public class Ga4ghDataNodeDto {
     private String url = null;
     private Map<String, String> metaData = null;
     private String healthStatus = null;
-    private DateTime created = null;
-    private DateTime lastHealthUpdated = null;
+    private String created = null;
+    private String lastHealthUpdated = null;
     private String description = null;
     private List<String> aliases = null;
 }
